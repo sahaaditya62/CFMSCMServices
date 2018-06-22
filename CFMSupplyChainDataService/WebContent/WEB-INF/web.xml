@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+	<display-name>Asset Data Service</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<description>
+			Config Servlet to handle configuration related information
+		</description>
+		<display-name>ConfigServlet</display-name>
+		<icon>
+			<small-icon />
+			<large-icon />
+		</icon>
+		<servlet-name>ConfigServlet</servlet-name>
+		<servlet-class>com.ibm.app.web.frmwk.ConfigServlet</servlet-class>
+		<init-param>
+			<description>Properties related to mongodb</description>
+			<param-name>MONGO_PROP</param-name>
+			<param-value>/WEB-INF/mongodb.properties</param-value>
+		</init-param>
+		<init-param>
+			<description>Properties related to application</description>
+			<param-name>APP_PROPS</param-name>
+			<param-value>/WEB-INF/application.properties</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConfigServlet</servlet-name>
+		<url-pattern>*.config</url-pattern>
+	</servlet-mapping>
+</web-app>
